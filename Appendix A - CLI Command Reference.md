@@ -48,11 +48,39 @@ openclaw sessions list                                    # List active sessions
 openclaw sessions send --target <session_key> --message "/new"  # Reset a session
 ```
 
+## Session Management
+
+```bash
+openclaw sessions cleanup --older-than 7d           # Remove sessions older than 7 days
+openclaw sessions cleanup --agent <name> --all       # Remove all sessions for an agent
+openclaw sessions cleanup --older-than 3d --dry-run  # Preview what would be removed
+```
+
 ## Security
 
 ```bash
 openclaw security audit        # Run built-in security audit
 ```
+
+## Secrets Management
+
+```bash
+openclaw secrets configure                  # Set up external secrets backend
+openclaw secrets set <KEY_NAME>             # Add or update a secret
+openclaw secrets audit                      # List all configured secrets
+openclaw secrets apply                      # Apply secrets to running instance
+openclaw secrets reload                     # Reload all secrets from backend
+```
+
+## Agent Bindings
+
+```bash
+openclaw agents bindings                                    # List all agent-channel bindings
+openclaw agents bind <agent> --channel <channel>            # Bind agent to channel
+openclaw agents unbind <agent> --channel <channel>          # Remove binding
+```
+
+Channel format: `telegram:topic-name`, `discord:#channel-name`, `imessage:contact`
 
 ## Models & Auth
 
@@ -81,3 +109,13 @@ openclaw gateway restart
 openclaw plugins install <name>   # Install a plugin
 openclaw plugins list              # List installed plugins
 ```
+
+## Updates
+
+```bash
+openclaw update                             # Check for and install updates
+openclaw update --auto                      # Enable automatic updates
+openclaw --version                          # Check current version
+```
+
+Auto-update config lives in your gateway settings. See [[1. Getting Started#Auto-Updates]] for the full JSON config.

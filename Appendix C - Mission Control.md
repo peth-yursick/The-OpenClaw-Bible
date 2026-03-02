@@ -1,5 +1,3 @@
-# Appendix C — Mission Control "Jarvis" Prompt
-
 A mega-prompt for building a full-featured mission control dashboard. This creates a Next.js 15 app with Convex backend, Tailwind CSS, Framer Motion animations, and ShadCN components.
 
 This is an advanced setup. Only use this once you have a working OpenClaw with several active workflows.
@@ -23,6 +21,7 @@ Dark mode only. Responsive. Auto-refresh data every 15 seconds. Host locally.
 - Quick stats: today's API cost, messages sent, tasks completed
 - System health: CPU, memory, disk usage
 - Recent activity feed (last 20 actions)
+- Secrets health: last rotation dates, any expired keys
 
 ### 2. Ops — Tasks & Calendar
 - Kanban board: To-do / In Progress / Done / Blocked
@@ -35,6 +34,8 @@ Dark mode only. Responsive. Auto-refresh data every 15 seconds. Host locally.
 - Session history per agent
 - Inter-agent message log
 - Shared context file browser
+- Agent-channel bindings (which agent handles which channel/topic)
+- Binding management (bind/unbind from dashboard)
 
 ### 4. Chat — Conversation Interface
 - Send messages to any agent
@@ -65,6 +66,7 @@ Dark mode only. Responsive. Auto-refresh data every 15 seconds. Host locally.
 - Token usage trends
 - Per-workflow cost analysis
 - Budget vs actual
+- Secrets rotation status (last rotated date per key)
 
 ## Data Source
 All data reads from workspace files via API routes. Convex handles real-time sync.

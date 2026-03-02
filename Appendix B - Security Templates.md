@@ -159,3 +159,46 @@ openclaw gateway restart
 # 5. Verify everything still works
 openclaw status --usage
 ```
+
+---
+
+## External Secrets Management Template
+
+Set up secrets management from scratch:
+
+```bash
+# 1. Configure the secrets backend
+openclaw secrets configure
+
+# 2. Migrate existing keys from .env
+openclaw secrets set ANTHROPIC_API_KEY
+openclaw secrets set OPENAI_API_KEY
+openclaw secrets set BRAVE_API_KEY
+openclaw secrets set X_API_KEY
+openclaw secrets set FIRECRAWL_API_KEY
+
+# 3. Verify all secrets are configured
+openclaw secrets audit
+
+# 4. Apply to running instance
+openclaw secrets apply
+
+# 5. Remove old .env file (after verifying everything works)
+# rm ~/.openclaw/.env
+```
+
+**Monthly rotation prompt:**
+> "Rotate all API keys: generate new keys from each provider dashboard, update via `openclaw secrets set`, run `openclaw secrets apply`, verify with `openclaw status --usage`. Report any failures on Telegram."
+
+---
+
+## 2026.3.1 Security Hardening Summary
+
+30+ fixes shipped between 2026.2.17 and 2026.3.1:
+
+- **Sandbox & Isolation (4 fixes)** — Docker escape paths, symlink attacks, container breakouts, and macOS user isolation gaps. All patched.
+- **Network & SSRF (3 fixes)** — URL whitelist validation on tool calls, internal network scanning prevention, DNS rebinding protection.
+- **Authentication & Sessions (4 fixes)** — Token reuse, auth bypass on custom ports, session expiry enforcement, exec approval now per-action (not blanket session).
+- **Input Validation (3 fixes)** — Prompt injection via tool output, path traversal in workspace paths, cron job input sanitization.
+
+**Minimum version:** 2026.2.25 for critical patches. 2026.3.1 for all fixes.
