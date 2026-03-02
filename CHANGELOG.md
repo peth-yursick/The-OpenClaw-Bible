@@ -4,6 +4,13 @@
 
 ---
 
+## 2026-03-02 (Agent-maintained files + maintenance cycles)
+
+### Updated
+- **Ch 4: Identity & Personality Files — Tips section** — Rewrote tip #1: let the agent maintain its own identity files as "organizational scar tissue" instead of hand-editing. Added new tip #4: schedule regular maintenance cycles (prune MEMORY.md, review SOUL.md for contradictions, check skill relevance, clean stale cron jobs). Mentions `/simplify` skill for Claude Code users. Source: Peter Steinberger's "Just Talk To It" article (steipete.com). Related: [[04. Identity & Personality Files#Tips]]
+
+---
+
 ## What's New in 2026.3.1
 
 OpenClaw has shipped 13 releases since the last guidebook update (2026.2.17 → 2026.3.1). The highlights:
